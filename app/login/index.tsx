@@ -17,9 +17,13 @@ import {
 export default function HomeScreen() {
   const router = useRouter();
 
-  const handleLoginButtonClick = () => {
+  const handleLoginButtonClick = (type?: string) => {
     // 로그인 성공 로직 처리 후 홈으로 이동 -> 추후 api 연결
-    router.replace("/home");
+    if (!type) {
+      router.replace("/mypage?type=kakao");
+    } else {
+      router.replace("/mypage?type=naver");
+    }
   };
   return (
     <LoginContainer>
@@ -31,11 +35,14 @@ export default function HomeScreen() {
         </LogoTextWrapper>
       </LogoWrapper>
 
-      <LoginButton bgColor="#00C73C" onPress={handleLoginButtonClick}>
+      <LoginButton
+        bgColor="#00C73C"
+        onPress={() => handleLoginButtonClick("naver")}
+      >
         <NaverIcon />
         <Body_1_1 color="#FFFFFF">네이버 계정으로 로그인 하기</Body_1_1>
       </LoginButton>
-      <LoginButton bgColor="#FAE407" onPress={handleLoginButtonClick}>
+      <LoginButton bgColor="#FAE407" onPress={() => handleLoginButtonClick()}>
         <KakaoIcon />
         <Body_1_1 color="#000000">카카오 계정으로 로그인 하기</Body_1_1>
       </LoginButton>

@@ -38,4 +38,5 @@ export const LoginButton = styled.TouchableOpacity<ButtonProps>`
   justify-content: center;
   padding: 12px 32px;
   margin-bottom: 10px;
+  gap: 10px;
 `;
