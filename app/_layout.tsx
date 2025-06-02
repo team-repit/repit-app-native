@@ -17,17 +17,18 @@ export default function RootLayout() {
     NanumGothicBold: require("../assets/fonts/NanumBarunGothicBold.otf"),
     NanumGothicLight: require("../assets/fonts/NanumBarunGothicLight.otf"),
   });
+
   if (!loaded) {
-    // Async font loading only occurs in development.
     return null;
   }
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      />
       <StatusBar style="auto" />
     </ThemeProvider>
   );
