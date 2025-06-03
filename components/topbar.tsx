@@ -9,14 +9,14 @@ interface TopBarProps {
 }
 const TopBar = ({ text }: TopBarProps) => {
   const router = useRouter();
-  const handleBackButtonClick = () => {
+  const handleBackButtonPress = () => {
     router.replace("/login");
   };
 
   return (
     <SafeAreaWrapper edges={["top"]}>
       <TopBarContainer>
-        <BackIconWrapper onPress={handleBackButtonClick}>
+        <BackIconWrapper onPress={handleBackButtonPress}>
           <BackIcon width={24} height={24} />
         </BackIconWrapper>
         <SubHeadline_3_1>{text}</SubHeadline_3_1>
